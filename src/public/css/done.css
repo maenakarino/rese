@@ -1,0 +1,19 @@
+.header {
+    display: none;
+}
+
+.done-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.done-page__message {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.done-page__btn {
+    margin: 32px auto 0;
+}

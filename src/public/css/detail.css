@@ -1,0 +1,99 @@
+main {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+header {
+    width: 48%;
+}
+
+.detail__wrap {
+    width: 48%;
+    margin-top: 10px;
+    height: 620px;
+    overflow: auto;
+}
+
+.header__shop-name {
+    font-size: 2.4rem;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.detail__image {
+    margin: 10px 0;
+}
+
+.detail__image-img {
+    width: 100%;
+}
+
+.detail__tag {
+    display: flex;
+    font-size: 1.6rem;
+}
+
+.detail__tag-info {
+    padding-right: 10px;
+}
+
+.detail__outline-text {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.reservation__wrap {
+    width: 45%;
+    height: 650px;
+    background-color: rgb(63, 90, 242);
+    margin-top: -70px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation__content {
+    padding: 10px 10% 10px 30px;
+}
+
+.reservation__title {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.form__item {
+    display: block;
+    border: none;
+    border-radius: 4px;
+    margin: 10px 0;
+    height: 25px;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.table__header {
+    width: 85px;
+    text-align: left;
+    font-weight: normal;
+    padding: 2px 0;
+}
+
+.reservation__button {
+    margin-top: auto;
+    width: 100%;
+}
+
+.reservation__button-btn {
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    background-color: rgb(28, 65, 251);
+    border: none;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
