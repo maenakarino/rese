@@ -33,6 +33,7 @@ class CreateShopsTable extends Migration
     {
         Schema::table('shops', function (Blueprint $table) {
             $table->dropForeign(['area_id', 'genre_id']);
+            
         });
         
         Schema::dropIfExists('shops');

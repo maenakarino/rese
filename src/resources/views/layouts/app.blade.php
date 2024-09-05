@@ -14,28 +14,26 @@
 
 <body>
  <header>
-  <div class="header__logo">
-    <h1 class="header__heading">Rese</h1>
-     @yield('link')
-  </div>
+  
   
  <div class="header__left">
   <input type="checkbox" class="drawer__hidden" id="drawer__input">
    <label for="drawer__input" class="drawer__open">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
+    <span></span>
    </label>
   <nav class="header-nav">
     <ul class="header-nav-list">
-      <li class="header-nav-item"><a href="/">Home</a></li>
-      <li class="header-nav-item"><a href="/mypage">Mypage</a></li>
-      <li class="header-nav-item"><a href="/logout">Logout</a></li>
-      <li class="header-nav-item"><a href="/register">Register</a></li>
-      <li class="header-nav-item"><a href="/login">Login</a></li>
+      <li class="header-nav-item"><a class="nav__item-link" href="/">Home</a></li>
+      <li class="header-nav-item"><a class="nav__item-link" href="/mypage">Mypage</a></li>
+      <li class="header-nav-item"><a class="nav__item-link" href="/logout">Logout</a></li>
+      <li class="header-nav-item"><a class="nav__item-link" href="/register">Register</a></li>
+      <li class="header-nav-item"><a class="nav__item-link" href="/login">Login</a></li>
     </ul>
   </nav>
  </div>
+
+ <div class="header__logo">Rese</div>
+ @yield('header')
   
  </header>
   <main>
