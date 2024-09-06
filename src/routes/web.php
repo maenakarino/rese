@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,4 @@ use App\Http\Controllers\ShopController;
 Route::get('/', [ShopController::class, 'index']);
 
 Route::get('/favorite', [ShopController::class, 'index'])->name('favorite');
+

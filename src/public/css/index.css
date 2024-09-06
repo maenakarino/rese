@@ -42,3 +42,44 @@
     cursor: pointer;
     font-size: 1.2rem;
 }
+
+.shop__wrap {
+    display: flex;
+    gap: 15px 1%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    margin: auto;
+}
+
+.shop__image {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.shop__title {
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.shop__tag {
+    display: flex;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.shop__button-favorite-btn {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+}
+
+.shop__button-favorite-btn:hover {
+    opacity: 0.6;
+}

@@ -24,10 +24,16 @@
   <nav class="header-nav">
     <ul class="header-nav-list">
       <li class="header-nav-item"><a class="nav__item-link" href="/">Home</a></li>
+    @if (Auth::check())
       <li class="header-nav-item"><a class="nav__item-link" href="/mypage">Mypage</a></li>
+     <form class="form" action="/logout" method="post">
+      @csrf
       <li class="header-nav-item"><a class="nav__item-link" href="/logout">Logout</a></li>
+     </form>
+    @else
       <li class="header-nav-item"><a class="nav__item-link" href="/register">Register</a></li>
       <li class="header-nav-item"><a class="nav__item-link" href="/login">Login</a></li>
+    @endif
     </ul>
   </nav>
  </div>

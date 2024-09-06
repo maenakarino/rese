@@ -50,7 +50,7 @@
                                     enctype="application/x-www-form-urlencoded" class="shop__button-favorite form">
                                     @csrf
                                     <button type="submit" class="shop__button-favorite-btn" title="お気に入り追加">
-                                        <img class="favorite__btn-image" src="{{ asset('images/heart.svg') }}">
+                                        <img class="favorite__btn-image" src="{{ asset('images/heart.png') }}">
                                     </button>
                 </form>
             </div>
