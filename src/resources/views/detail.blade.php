@@ -8,8 +8,8 @@
    <div class="detail__wrap">
     <div class="detail__header">
         <div class="header__title">
-            <a href="{{ $backRoute }}" class="header__back"><</a>
-            <span class="header__shop-name">{{ $shop->name }}</span>
+            <a href="/" class="header__back"><</a>
+            <span class="header__shop-name">{{ $shop->name ?? '店舗名がありません' }}</span>
         </div>
     </div>
     <div class="detail__image">
@@ -64,19 +64,19 @@
             <tr>
                 <th class="table__header">Date</th>
                 <td class="table__item">
-                    <input type="text" name="date" value="{{ $request['date'] }}" readonly />
+                    <input type="text" name="date" value="{{ $request['date'] ?? '' }}" readonly />
                 </td>
             </tr>
             <tr>
                 <th class="table__header">Time</th>
                 <td class="table__item">
-                    <input type="text" name="time" value="{{ $request['time'] }}" readonly />
+                    <input type="text" name="time" value="{{ $request['time'] ?? '' }}" readonly />
                 </td>
             </tr>
             <tr>
                 <th class="table__header">Number</th>
                 <td class="table__item">
-                    <input type="text" name="number" value="{{ $request['number'] }}" readonly />
+                    <input type="text" name="number" value="{{ $request['number'] ?? '' }}" readonly />
                 </td>
             </tr>
         </table>

@@ -7,6 +7,8 @@ use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Favorite;
+use Illuminate\Support\Facades\Auth;
+
 
 class ShopController extends Controller
 {
@@ -18,5 +20,19 @@ class ShopController extends Controller
         $favorites = Favorite::all();
 
         return view('index', compact('shops', 'areas', 'genres'));
+    }
+
+    public function detail($id)
+    {
+        $user = Auth::user();
+        $userId = Auth::id();
+        $shop = Shop::with(['area', 'genre'])->find($id);
+
+        if (!$shop) {
+        return redirect('/')->with('error', '店舗が見つかりません');
+    }
+        $backRoute = '/';
+
+        return view('detail', compact('shop'));
     }
 }

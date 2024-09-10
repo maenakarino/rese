@@ -15,6 +15,19 @@ header {
     overflow: auto;
 }
 
+.header__back {
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px gray;
+    text-decoration: none;
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
+}
+
 .header__shop-name {
     font-size: 2.4rem;
     font-weight: bold;

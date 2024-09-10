@@ -45,7 +45,7 @@
                 <p class="shop__tag-info">#{{ $shop->genre->name }}</p>
             </div>
             <div class="shop__button">
-                <a href="/detail/(!isset($shop->id))?from=index" class="shop__button-detail">詳しくみる</a>
+                <a href="/detail/{{ $shop->id }}?from=index" class="shop__button-detail">詳しくみる</a>
                 <form action="{{ route('favorite', (!isset($shop))) }}" method="post"
                                     enctype="application/x-www-form-urlencoded" class="shop__button-favorite form">
                                     @csrf

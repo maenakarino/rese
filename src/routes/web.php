@@ -19,3 +19,14 @@ Route::get('/', [ShopController::class, 'index']);
 
 Route::get('/favorite', [ShopController::class, 'index'])->name('favorite');
 
+Route::middleware('auth')->group(function () {
+     Route::get('/', [AuthController::class, 'index']);
+ });
+
+Route::post('/register', [AuthController::class, 'store']);
+
+ Route::controller(ShopController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/search', 'search')->name('search');
+    Route::get('/detail/{shop_id}', 'detail');
+});
