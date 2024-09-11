@@ -46,13 +46,15 @@
             </div>
             <div class="shop__button">
                 <a href="/detail/{{ $shop->id }}?from=index" class="shop__button-detail">詳しくみる</a>
-                <form action="{{ route('favorite', (!isset($shop))) }}" method="post"
+                @if (Auth::check())
+                <form action="{{ route('favorite', $shop) }}" method="post"
                                     enctype="application/x-www-form-urlencoded" class="shop__button-favorite form">
                                     @csrf
                                     <button type="submit" class="shop__button-favorite-btn" title="お気に入り追加">
                                         <img class="favorite__btn-image" src="{{ asset('images/heart.png') }}">
                                     </button>
                 </form>
+                @endif
             </div>
         </div>
     </div>

@@ -35,4 +35,14 @@ class ShopController extends Controller
 
         return view('detail', compact('shop'));
     }
+
+    public function store(Shop $shop)
+    {
+        $favorite = new Favorite();
+        $favorite->shop_id = $shop->id;
+        $favorite->user_id = Auth::user()->id;
+        $favorite->save();
+
+        return back();
+    }
 }

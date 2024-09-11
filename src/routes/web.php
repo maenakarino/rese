@@ -21,6 +21,8 @@ Route::get('/favorite', [ShopController::class, 'index'])->name('favorite');
 
 Route::middleware('auth')->group(function () {
      Route::get('/', [AuthController::class, 'index']);
+     Route::get('/logout', [AuthController::class,'getLogout']);
+     
  });
 
 Route::post('/register', [AuthController::class, 'store']);
@@ -30,3 +32,11 @@ Route::post('/register', [AuthController::class, 'store']);
     Route::get('/search', 'search')->name('search');
     Route::get('/detail/{shop_id}', 'detail');
 });
+
+Route::post('/register', [AuthController::class,'postRegister']);
+Route::post('/login', [AuthController::class,'postLogin']);
+
+Route::controller(ShopController::class)->group(function () {
+        Route::post('/favorite/store/{shop}', 'store')->name('favorite');
+        Route::delete('/favorite/destroy/{shop}', 'destroy')->name('unfavorite');
+    });
