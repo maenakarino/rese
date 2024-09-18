@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ReserveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +35,16 @@ Route::post('/register', [AuthController::class, 'store']);
     Route::get('/detail/{shop_id}', 'detail');
 });
 
+Route::get('/shops/search', [ShopController::class, 'search']);
+
 Route::post('/register', [AuthController::class,'postRegister']);
 Route::post('/login', [AuthController::class,'postLogin']);
 
-Route::controller(ShopController::class)->group(function () {
+Route::controller(FavoriteController::class)->group(function () {
         Route::post('/favorite/store/{shop}', 'store')->name('favorite');
         Route::delete('/favorite/destroy/{shop}', 'destroy')->name('unfavorite');
     });
+
+Route::prefix('reserve')->controller(ReserveController::class)->group(function () {
+        Route::post('/reserve/store/{shop}', 'store')->name('reserve');
+});

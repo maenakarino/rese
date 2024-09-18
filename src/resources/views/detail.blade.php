@@ -24,7 +24,8 @@
     </div>
    </div>
 
-   <form class="reservation__wrap" action="/" method="post">
+   @if (Auth::check())
+   <form class="reservation__wrap" action="{{ route('reserve', $shop) }}" method="post">
     @csrf
     <div class="reservation__content">
         <p class="reservation__title">予約</p>
@@ -82,7 +83,8 @@
         </table>
     </div>
     <div class="form__button">
-        <button class="reservation__button-btn" type="submit" name="submit" value="reserves">予約する</button>
+        <button class="reservation__button-btn" type="submit" name="submit" value="{{ request('reserve') }}">予約する</button>
     </div>
    </form>
+   @endif
 @endsection

@@ -26,4 +26,23 @@ class Shop extends Model
     {
         return $this->belongsTo(Genre::class);
     }
+
+    
+
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+           $query->where('content', 'like', '%' . $keyword . '%');
+        }
+    }
+
+    public function scopeAreaSearch($query, $area_id)
+    {
+        return $query->where('area_id', $area_id);
+    }
+
+    public function scopeGenreSearch($query, $genre_id)
+    {
+        return $query->where('genre_id', $genre_id);
+    }
 }

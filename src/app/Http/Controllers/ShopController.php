@@ -36,13 +36,24 @@ class ShopController extends Controller
         return view('detail', compact('shop'));
     }
 
-    public function store(Shop $shop)
+    public function store(Request $request)
     {
-        $favorite = new Favorite();
-        $favorite->shop_id = $shop->id;
-        $favorite->user_id = Auth::user()->id;
-        $favorite->save();
+        
 
-        return back();
+        Shop::create($shop);
+        return redirect('/');
     }
+
+    public function search(Request $request)
+   {
+        $area_id = $request->input('area_id'); 
+        $genre_id = $request->input('genre_id');
+        $areas = Area::all();
+        $genres = Genre::all();
+        $shops = Shop::AreaSearch($area_id)->get();
+        $shops = Shop::GenreSearch($genre_id)->get();
+
+       return view('index', compact('shops', 'areas', 'genres'));
+   }
+
 }

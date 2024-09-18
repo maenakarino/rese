@@ -5,32 +5,89 @@
 @endsection
 
 @section('header')
-  <form class="header__right" action="/" method="get">
-    @csrf
-    <div class="header__search">
-      <label class="select-box__label">
-        <select class="select-box__item" name="area" value="{{ request('area_id') }}">
-            <option disabled selected>All area</option> 
-        </select>
-      </label>
-    
+  <form class="header__right" action="/search" method="get">
+       @csrf 
+        <div class="header__search">
+            <label class="select-box__label">
+                <select name="area_id" class="select-box__item">
+                    <option value="">All area</option>
+                    @foreach ($areas as $area)
+                        <option value="{{ $area['id'] }}">{{ $area['name'] }}
+                        </option>
+                    @endforeach
+                </select>
+            </label>
 
-    
-      <label class="select-box__label">
-        <select class="select-box__item" name="genre" value="{{ request('genre_id') }}">
-            <option disabled selected>All genre</option>
-        </select>
-      </label>
-    
+            <label class="select-box__label">
+                <select name="genre_id" class="select-box__item">
+                    <option value="">All genre</option>
+                    @foreach ($genres as $genre)
+                        <option value="{{ $genre['id'] }}">
+                            {{ $genre['name'] }}</option>
+                    @endforeach
+                </select>
+            </label>
 
-     <div class="search__item">
-        <div class="search__item-button"></div>
-        <label class="search__item-label">
-         <input type="text" name="word" class="search__item-input" placeholder="Search" value="{{ request('word') }}">
-        </label>
-      </div>
+            <div class="search__item">
+                <div class="search__item-button"></div>
+                <label class="search__item-label">
+                    <input type="text" name="word" class="search__item-input" placeholder="Search ..." value="{{ old('keyword') }}">
+                </label>
+            </div>
+            <div class="search-form__actions">
+                      <input class="search-form__search-btn btn" type="submit" value="検索">
+            </div>
+        </div>
+    </form>
+
+    <div class="header__right--hidden">
+        <div class="search__icon">
+            <input id="drawer__input-search" class="drawer__hidden-search" type="checkbox">
+            <label for="drawer__input-search" class="drawer__open-search"><span></span></label>
+            <div class="overlay"></div>
+            <div class="search__content">
+                <form action="/" method="get" class="search__form">
+                    @csrf
+                    <div class="search__select">
+                        <label class="select-box__label">
+                            <select name="area" class="select-box__item">
+                                <option value="">All area</option>
+                                @foreach ($areas as $area)
+                                    <option class="select-box__option" value="{{ $area->id }}"
+                                        {{ request('area') == $area->id ? 'selected' : '' }}>{{ $area->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </label>
+
+                        <label class="select-box__label">
+                            <select name="genre" class="select-box__item">
+                                <option value="">All genre</option>
+                                @foreach ($genres as $genre)
+                                    <option value="{{ $genre->id }}"
+                                        {{ request('genre') == $genre->id ? 'selected' : '' }}>{{ $genre->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="search__text">
+                        <div class="search__item">
+                            <div class="search__item-button"></div>
+                            <label class="search__item-label">
+                                <input type="text" name="word" class="search__item-input" placeholder="Search ..."
+                                    value="{{ request('word') }}">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="search-form__actions">
+                      <input class="search-form__search-btn btn" type="submit" value="検索">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </form>
 @endsection
 
 @section('content')
