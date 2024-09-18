@@ -39,6 +39,7 @@ Route::get('/shops/search', [ShopController::class, 'search']);
 
 Route::post('/register', [AuthController::class,'postRegister']);
 Route::post('/login', [AuthController::class,'postLogin']);
+Route::view('/thanks', 'auth.thanks');
 
 Route::controller(FavoriteController::class)->group(function () {
         Route::post('/favorite/store/{shop}', 'store')->name('favorite');

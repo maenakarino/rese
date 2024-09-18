@@ -5,30 +5,34 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Models\Shop;
+use App\Models\User;  // Import the User model
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;  // Import Hash for password hashing
 
 class AuthController extends Controller
 {
     public function index()
-   {
-       $shops = Shop::all();
-       $user = Auth::user();
-       $backRoute = '/';
-       
-       return view('index', compact('shops'));
-   }
+    {
+        $shops = Shop::all();
+        $user = Auth::user();
+        $backRoute = '/';
+
+        return view('index', compact('shops'));
+    }
 
     public function store(RegisterRequest $request)
     {
-        $register = $request->only(['username', 'email', 'password']);
-
+        $register = $request->only(['name', 'email', 'password']);
         
-        Register::create($register);
+        // Hashing the password before storing it
+        $register['password'] = Hash::make($register['password']);
 
-        if($request->input('back') == 'back'){
+        User::create($register);  // Assuming you meant to use the User model
+
+        if ($request->input('back') == 'back') {
             return redirect('/')->withInput();
         }
+
         return view('thanks');
     }
 
@@ -44,7 +48,7 @@ class AuthController extends Controller
             User::create([
                 'name' => $request['name'],
                 'email' => $request['email'],
-                'password' => $request['password'],
+                'password' => Hash::make($request['password']),  // Ensure password is hashed
             ]);
             return redirect('thanks')->with('result', '会員登録が完了しました');
         } catch (\Throwable $th) {
