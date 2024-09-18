@@ -32,7 +32,7 @@
             <div class="search__item">
                 <div class="search__item-button"></div>
                 <label class="search__item-label">
-                    <input type="text" name="word" class="search__item-input" placeholder="Search ..." value="{{ old('keyword') }}">
+                    <input type="text" name="keyword" class="search__item-input" placeholder="Search ..." value="{{ old('keyword') }}">
                 </label>
             </div>
             <div class="search-form__actions">

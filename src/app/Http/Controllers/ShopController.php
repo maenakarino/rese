@@ -49,6 +49,7 @@ class ShopController extends Controller
     // フィルターに基づく検索を構築する
     $area_id = $request->input('area_id');
     $genre_id = $request->input('genre_id');
+    $keyword = $request->input('keyword');  // キーワードを取得
 
     // エリアとジャンルのリストを取得
     $areas = Area::all();
@@ -65,6 +66,12 @@ class ShopController extends Controller
     // ジャンルでフィルタリング
     if ($genre_id) {
         $query->where('genre_id', $genre_id);
+    }
+
+    //キーワードでフィルタリング
+    if ($keyword) {
+        $query->where('name', 'LIKE', "%{$keyword}%")
+              ->orWhere('outline', 'LIKE', "%{$keyword}%");  // 店名または説明にキーワードが含まれるか
     }
 
     // クエリを実行して結果を取得

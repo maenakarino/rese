@@ -32,7 +32,7 @@ class Shop extends Model
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {
-           $query->where('content', 'like', '%' . $keyword . '%');
+           $query->where('word', 'like', '%' . $keyword . '%');
         }
     }
 
