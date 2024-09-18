@@ -45,15 +45,32 @@ class ShopController extends Controller
     }
 
     public function search(Request $request)
-   {
-        $area_id = $request->input('area_id'); 
-        $genre_id = $request->input('genre_id');
-        $areas = Area::all();
-        $genres = Genre::all();
-        $shops = Shop::AreaSearch($area_id)->get();
-        $shops = Shop::GenreSearch($genre_id)->get();
+{
+    // フィルターに基づく検索を構築する
+    $area_id = $request->input('area_id');
+    $genre_id = $request->input('genre_id');
 
-       return view('index', compact('shops', 'areas', 'genres'));
-   }
+    // エリアとジャンルのリストを取得
+    $areas = Area::all();
+    $genres = Genre::all();
 
+    // Shopモデルのクエリビルダーを取得
+    $query = Shop::with(['area', 'genre']);  // エリアとジャンルのリレーションをロード
+
+    // エリアでフィルタリング
+    if ($area_id) {
+        $query->where('area_id', $area_id);
+    }
+
+    // ジャンルでフィルタリング
+    if ($genre_id) {
+        $query->where('genre_id', $genre_id);
+    }
+
+    // クエリを実行して結果を取得
+    $shops = $query->get();
+
+    // 検索結果とエリア、ジャンル情報をビューに渡す
+    return view('index', compact('shops', 'areas', 'genres'));
+}
 }

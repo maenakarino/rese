@@ -38,6 +38,9 @@ class Shop extends Model
 
     public function scopeAreaSearch($query, $area_id)
     {
+        if (!empty($area_id)) {
+           $query->where('area_id', $area_id);
+        }
         return $query->where('area_id', $area_id);
     }
 

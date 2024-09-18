@@ -12,17 +12,18 @@
                 <select name="area_id" class="select-box__item">
                     <option value="">All area</option>
                     @foreach ($areas as $area)
-                        <option value="{{ $area['id'] }}">{{ $area['name'] }}
-                        </option>
+                        <option class="select-box__option" value="{{ $area['id'] }}" {{ request('area') == $area->id ? 'selected' : '' }}>
+                            {{ $area['name'] }}</option>
                     @endforeach
                 </select>
             </label>
+            
 
             <label class="select-box__label">
                 <select name="genre_id" class="select-box__item">
                     <option value="">All genre</option>
                     @foreach ($genres as $genre)
-                        <option value="{{ $genre['id'] }}">
+                        <option value="{{ $genre['id'] }}" {{ request('genre') == $genre->id ? 'selected' : '' }}>
                             {{ $genre['name'] }}</option>
                     @endforeach
                 </select>
