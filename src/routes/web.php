@@ -18,11 +18,12 @@ use App\Http\Controllers\ReserveController;
 */
 
 Route::get('/', [ShopController::class, 'index']);
+Route::view('/done', 'done');
 
 Route::get('/favorite', [ShopController::class, 'index'])->name('favorite');
 
 Route::middleware('auth')->group(function () {
-     Route::get('/', [AuthController::class, 'index']);
+     Route::get('/mypage', [AuthController::class, 'index']);
      Route::get('/logout', [AuthController::class,'getLogout']);
      
  });
@@ -47,5 +48,6 @@ Route::controller(FavoriteController::class)->group(function () {
     });
 
 Route::prefix('reserve')->controller(ReserveController::class)->group(function () {
-        Route::post('/reserve/store/{shop}', 'store')->name('reserve');
+    Route::post('/reserve/store/{shop}', 'store')->name('reserve');
+    Route::get('/done', 'done')->name('done');  // 正しいルート定義
 });

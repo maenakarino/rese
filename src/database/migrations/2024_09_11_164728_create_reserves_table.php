@@ -20,6 +20,7 @@ class CreateReservesTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->integer('number');
+            $table->string('status');
             $table->timestamps();
         });
     }

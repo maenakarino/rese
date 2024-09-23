@@ -69,4 +69,6 @@ class AuthController extends Controller
     {
         return view('register');
     }
+
+    
 }

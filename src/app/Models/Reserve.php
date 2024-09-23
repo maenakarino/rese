@@ -10,9 +10,12 @@ class Reserve extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
+        'shop_id',
         'date',
         'time',
         'number',
+        'status'
     ];
 
     public function user()

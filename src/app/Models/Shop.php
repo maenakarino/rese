@@ -29,6 +29,13 @@ class Shop extends Model
 
     
 
+    public function reserves()
+    {
+        return $this->hasMany(Reserve::class, 'shop_id');
+    }
+
+    
+
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {

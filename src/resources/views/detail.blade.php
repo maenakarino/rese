@@ -25,14 +25,14 @@
    </div>
 
    @if (Auth::check())
-   <form class="reservation__wrap" action="{{ route('reserve', $shop) }}" method="post">
+   <form class="reservation__wrap" action="{{ route('reserve', $shop->id) }}" method="post">
     @csrf
     <div class="reservation__content">
         <p class="reservation__title">予約</p>
         <div class="form__content">
             <input class="form__item" type="date" name="date" value="{{ request('date') }}">
         </div>
-        <select class="form__content-time-select" name="time" value="{{ request('time') }}">
+        <select class="form__content-time-select" type="time" name="time" value="{{ request('time') }}">
             <option disabled selected>時間</option>
             <option value="1">17:00</option>
             <option value="2">17:30</option>
@@ -44,7 +44,7 @@
             <option value="8">20:30</option>
             <option value="9">21:00</option>
         </select>
-        <select class="form__content-number-select" name="number" value="{{ request('number') }}">
+        <select class="form__content-number-select" type="number" name="number" value="{{ request('number') }}">
             <option disabled selected>人数</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -52,39 +52,10 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
+        <div class="form__button">
+        <button class="reservation__button-btn" type="submit">予約する</button>
+        </div>
    </form>
    
-   <form class="confirm-form" action="/" method="post">
-    @csrf
-    <div class="confirm-table">
-        <table class="confirm-table__inner">
-            <tr>
-                <th class="table__header">Shop</th>
-                <td class="table__item">{{ $shop->name }}</td>
-            </tr>
-            <tr>
-                <th class="table__header">Date</th>
-                <td class="table__item">
-                    <input type="text" name="date" value="{{ $request['date'] ?? '' }}" readonly />
-                </td>
-            </tr>
-            <tr>
-                <th class="table__header">Time</th>
-                <td class="table__item">
-                    <input type="text" name="time" value="{{ $request['time'] ?? '' }}" readonly />
-                </td>
-            </tr>
-            <tr>
-                <th class="table__header">Number</th>
-                <td class="table__item">
-                    <input type="text" name="number" value="{{ $request['number'] ?? '' }}" readonly />
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="form__button">
-        <button class="reservation__button-btn" type="submit" name="submit" value="{{ request('reserve') }}">予約する</button>
-    </div>
-   </form>
    @endif
 @endsection
