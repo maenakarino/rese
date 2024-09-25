@@ -5,6 +5,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,9 @@ Route::view('/done', 'done');
 Route::get('/favorite', [ShopController::class, 'index'])->name('favorite');
 
 Route::middleware('auth')->group(function () {
-     Route::get('/mypage', [AuthController::class, 'index']);
+     Route::get('/', [AuthController::class, 'index']);
      Route::get('/logout', [AuthController::class,'getLogout']);
+     Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
      
  });
 
