@@ -11,6 +11,12 @@ class ReserveController extends Controller
 {
     public function store(Request $request, Shop $shop)
     {
+        $request->validate([
+        'date' => 'required|date',
+        'time' => 'required',
+        'number' => 'required|integer|min:1|max:4', // 1から4までの人数をバリデート
+        ]);
+        
         // 新しい予約を作成
         $reserve = new Reserve();
         $reserve->shop_id = $shop->id;
