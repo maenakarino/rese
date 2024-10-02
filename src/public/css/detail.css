@@ -77,7 +77,15 @@ header {
     font-weight: bold;
 }
 
-.form__item {
+.reservation-form {
+    background-color: #673ab7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-form select,
+.reservation-form input {
     display: block;
     border: none;
     border-radius: 4px;
@@ -87,26 +95,24 @@ header {
     padding: 5px 10px;
 }
 
-.table__header {
-    width: 85px;
-    text-align: left;
-    font-weight: normal;
-    padding: 2px 0;
+.reservation-summary {
+    background-color: #5e35b1;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
 }
 
-.reservation__button {
-    margin-top: auto;
-    width: 100%;
-}
-
-.reservation__button-btn {
-    width: 100%;
-    height: 50px;
-    color: #fff;
-    background-color: rgb(28, 65, 251);
+.reserve-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1e88e5;
     border: none;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-radius: 4px;
+    color: white;
     cursor: pointer;
-    font-size: 1.6rem;
+    font-size: 16px;
+}
+
+.reserve-btn:hover {
+    background-color: #1565c0;
 }

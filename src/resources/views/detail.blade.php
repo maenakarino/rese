@@ -29,33 +29,64 @@
     @csrf
     <div class="reservation__content">
         <p class="reservation__title">予約</p>
-        <div class="form__content">
-            <input class="form__item" type="date" name="date" value="{{ request('date') }}">
-        </div>
-        <select class="form__content-time-select" type="time" name="time" value="{{ request('time') }}">
-            <option disabled selected>時間</option>
-            <option value="1">17:00</option>
-            <option value="2">17:30</option>
-            <option value="3">18:00</option>
-            <option value="4">18:30</option>
-            <option value="5">19:00</option>
-            <option value="6">19:30</option>
-            <option value="7">20:00</option>
-            <option value="8">20:30</option>
-            <option value="9">21:00</option>
+        <div class="reservation-form">
+            <!-- 予約フォーム -->
+        <input type="date" id="date" placeholder="日付を選択" required>
+        <select id="time">
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
         </select>
-        <select class="form__content-number-select" type="number" name="number" value="{{ request('number') }}">
-            <option disabled selected>人数</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+        <select id="number">
+            <option value="1人">1人</option>
+            <option value="2人">2人</option>
+            <option value="3人">3人</option>
+            <option value="4人">4人</option>
         </select>
-        <div class="form__button">
-        <button class="reservation__button-btn" type="submit">予約する</button>
+
+        <!-- 確認表示部分 -->
+        <div class="reservation-summary">
+            <p>Shop: <span id="shop-name">{{ $shop->name }}</span></p>
+            <p>Date: <span id="confirm-date">-</span></p>
+            <p>Time: <span id="confirm-time">-</span></p>
+            <p>Number: <span id="confirm-number">-</span></p>
         </div>
+
+        <!-- 予約ボタン -->
+        <button class="reserve-btn" id="reserve-button">予約する</button>
+    </div>
    </form>
    
    @endif
+   
+   <script>
+        // 入力フォームの要素を取得
+        const dateInput = document.getElementById('date');
+        const timeInput = document.getElementById('time');
+        const numberInput = document.getElementById('number');
+
+        const confirmDate = document.getElementById('confirm-date');
+        const confirmTime = document.getElementById('confirm-time');
+        const confirmNumber = document.getElementById('confirm-number');
+
+        // フォームの値が変更されたら確認画面に反映する
+        dateInput.addEventListener('change', () => {
+            confirmDate.textContent = dateInput.value;
+        });
+
+        timeInput.addEventListener('change', () => {
+            confirmTime.textContent = timeInput.value;
+        });
+
+        numberInput.addEventListener('change', () => {
+            confirmNumber.textContent = numberInput.value;
+        });
+
+        // 「予約する」ボタンを押した時にアクションを追加
+        document.getElementById('reserve-button').addEventListener('click', function () {
+            // ここで予約確定の処理を追加（サーバーにデータ送信など）
+            alert('予約が完了しました！\n日付: ' + dateInput.value + '\n時間: ' + timeInput.value + '\n人数: ' + numberInput.value);
+        });
+    </script>
+
 @endsection
