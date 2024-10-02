@@ -105,14 +105,29 @@
             <div class="shop__button">
                 <a href="/detail/{{ $shop->id }}?from=index" class="shop__button-detail">詳しくみる</a>
                 @if (Auth::check())
-                <form action="{{ route('favorite', $shop) }}" method="post"
+                            @if (in_array($shop->id, $favorites))
+                                <form action="{{ route('unfavorite', $shop) }}" method="post"
+                                    enctype="application/x-www-form-urlencoded" class="shop__button-favorite form">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="shop__button-favorite-btn" title="お気に入り削除">
+                                        <img class="favorite__btn-image" src="{{ asset('images/heart_red.png') }}">
+                                    </button>
+                                </form>
+                            @else
+                                <form action="{{ route('favorite', $shop) }}" method="post"
                                     enctype="application/x-www-form-urlencoded" class="shop__button-favorite form">
                                     @csrf
                                     <button type="submit" class="shop__button-favorite-btn" title="お気に入り追加">
                                         <img class="favorite__btn-image" src="{{ asset('images/heart.png') }}">
                                     </button>
-                </form>
-                @endif
+                                </form>
+                            @endif
+                        @else
+                            <button type="button" onclick="location.href='/login'" class="shop__button-favorite-btn">
+                                <img class="favorite__btn-image" src="{{ asset('images/heart.png') }}">
+                            </button>
+                        @endif
             </div>
         </div>
     </div>

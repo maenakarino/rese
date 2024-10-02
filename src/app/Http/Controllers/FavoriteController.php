@@ -18,4 +18,20 @@ class FavoriteController extends Controller
 
         return back();
     }
+
+    // お気に入り削除
+    public function destroy(Shop $shop)
+    {
+        // ログインしているユーザーのお気に入りから該当ショップを削除
+        $favorite = Favorite::where('user_id', Auth::id())
+                            ->where('shop_id', $shop->id)
+                            ->first();
+
+        if ($favorite) {
+            $favorite->delete();
+            return redirect()->back()->with('success', 'お気に入りを削除しました！');
+        }
+
+        return redirect()->back()->withErrors('お気に入りが見つかりませんでした。');
+    }
 }

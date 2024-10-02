@@ -17,9 +17,26 @@ class ShopController extends Controller
         $shops = Shop::all();
         $areas = Area::all();
         $genres = Genre::all();
-        $favorites = Favorite::all();
+        $favorites = $this->getFavorites();
 
-        return view('index', compact('shops', 'areas', 'genres'));
+        $shops = Shop::with(['area', 'genre'])->get(); // ショップデータを取得
+        $favorites = [];
+
+        // ログインしている場合、お気に入りを取得
+        if (Auth::check()) {
+           $favorites = Auth::user()->favorites->pluck('shop_id')->toArray(); // ユーザーのお気に入りショップIDを配列に変換
+        }
+
+
+        return view('index', compact('shops', 'areas', 'genres', 'favorites'));
+    }
+
+    private function getFavorites(): array
+    {
+        if (Auth::check()) {
+            return Auth::user()->favorites()->pluck('shop_id')->toArray();
+        }
+        return [];
     }
 
     public function detail($id)
@@ -50,6 +67,7 @@ class ShopController extends Controller
     $area_id = $request->input('area_id');
     $genre_id = $request->input('genre_id');
     $keyword = $request->input('keyword');  // キーワードを取得
+    $favorites = $this->getFavorites();
 
     // エリアとジャンルのリストを取得
     $areas = Area::all();
@@ -78,6 +96,6 @@ class ShopController extends Controller
     $shops = $query->get();
 
     // 検索結果とエリア、ジャンル情報をビューに渡す
-    return view('index', compact('shops', 'areas', 'genres'));
+    return view('index', compact('shops', 'areas', 'genres', 'favorites'));
 }
 }
