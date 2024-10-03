@@ -24,7 +24,7 @@
                                         <img src="{{ asset('images/edit.svg') }}" alt="予約変更" class="form__button-img">
                                     </button>
                                 </form>
-                                <form action="" method="post"  class="header__form">
+                                <form action="{{ route('reserve.destroy',$reserve) }}" method="post"  class="header__form">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="form__button--cancel" onclick="return confirmCancel()" title="予約キャンセル">

@@ -39,4 +39,13 @@ class ReserveController extends Controller
     {
         return view('done');  // ビューが正しく返されるか確認
     }
+
+    public function destroy(Reserve $reserve)
+    {
+
+      // 予約を削除
+      $reserve->delete();
+
+      return back();
+    }
 }
