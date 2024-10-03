@@ -87,37 +87,7 @@
                 @endforeach
             </div>
 
-            <label class="reservation__title hover__color--orange mobile-favorite__title">
-                <input type="radio" name="tab" class="reservation__title-input">お気に入り店舗
-            </label>
-            <div class="reservation__content-wrap mobile-favorite__wrap">
-                @foreach ($shops as $shop)
-                    <div class="shop__content">
-                        <img class="shop__image" src="{{ $shop->image_url }}" alt="イメージ画像">
-                        <div class="shop__item">
-                            <span class="shop__title">{{ $shop->name }}</span>
-                            <div class="shop__tag">
-                                <p class="shop__tag-info">#{{ $shop->area->name }}</p>
-                                <p class="shop__tag-info">#{{ $shop->genre->name }}</p>
-                            </div>
-                            <div class="shop__button">
-                                <a href="/detail/{{ $shop->id }}?from=mypage" class="shop__button-detail">詳しくみる</a>
-                                @if(in_array($shop->id, $favorites->toArray()))
-                                    <form action="{{ route('unfavorite',$shop) }}" method="post" class="shop__button-favorite">
-                                        @csrf
-                                        @method('delete')
-                                            <button type="submit" class="shop__button-favorite-btn" title="お気に入り削除">
-                                                <img class="favorite__btn-image" src="{{ asset('images/heart_color.svg') }}">
-                                            </button>
-                                    </form>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
+            
 
     <div class="favorite__wrap">
         <p class="favorite__title">お気に入り店舗</p>
@@ -138,7 +108,7 @@
                                     @csrf
                                     @method('delete')
                                         <button type="submit" class="shop__button-favorite-btn" title="お気に入り削除">
-                                            <img class="favorite__btn-image" src="{{ asset('images/heart_color.svg') }}">
+                                            <img class="favorite__btn-image" src="{{ asset('images/heart_red.png') }}">
                                         </button>
                                 </form>
                             @endif
