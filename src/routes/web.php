@@ -53,4 +53,6 @@ Route::prefix('reserve')->controller(ReserveController::class)->group(function (
     Route::post('/reserve/store/{shop}', 'store')->name('reserve');
     Route::get('/done', 'done')->name('done');  // 正しいルート定義
     Route::delete('/destroy/{reserve}', 'destroy')->name('reserve.destroy');
+    Route::get('/edit/{reserve}', 'edit')->name('reserve.edit');
+    Route::post('/update/{reserve}', 'update')->name('reserve.update');
 });

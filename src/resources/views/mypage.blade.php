@@ -19,7 +19,7 @@
                         <div class="reservation__header">
                             <p class="header__title reservation__header__title">予約{{ $loop->iteration }}</p>
                             <div class="reservation__header-button">
-                                <form action="" method="get" class="header__form">
+                                <form action="{{ route('reserve.edit',$reserve) }}" method="get" class="header__form">
                                     <button type="submit" class="form__button--edit" onclick="return confirmEdit()" title="予約変更">
                                         <img src="{{ asset('images/edit.svg') }}" alt="予約変更" class="form__button-img">
                                     </button>

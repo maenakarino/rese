@@ -25,21 +25,23 @@
    </div>
 
    @if (Auth::check())
-   <form class="reservation__wrap" action="{{ route('reserve', $shop->id) }}" method="post">
+   <form class="reservation__wrap" action="{{ request()->is('*edit*') ? route('reserve.update', $reserve) : route('reserve', $shop) }}" method="post">
     @csrf
     <div class="reservation__content">
-        <p class="reservation__title">予約</p>
+        <p class="reservation__title">{{ request()->is('*edit*') ? '予約変更' : '予約' }}</p>
         <div class="reservation-form">
             <!-- 予約フォーム -->
-            <input type="date" id="date" name="date" placeholder="日付を選択" required>
+            <input type="date" id="date" name="date" placeholder="日付を選択" value="{{ request()->is('*edit*') ? $reserve->date : '' }}">
             <select id="time" name="time">
-                <option value="">時間</option>
+                <option value="" {{ request()->is('*edit*') && isset($reserve->time) ? '' : 'selected' }}
+                        disabled>-- 時間を選択してください --</option>
                 <option value="17:00">17:00</option>
                 <option value="18:00">18:00</option>
                 <option value="19:00">19:00</option>
             </select>
             <select id="number" name="number">
-                <option value="">人数</option>
+                <option value="" {{ request()->is('*edit*') && isset($reserve->time) ? '' : 'selected' }}
+                        disabled>--人数を選択してください --</option>
                 <option value="1">1人</option>
                 <option value="2">2人</option>
                 <option value="3">3人</option>
@@ -49,13 +51,13 @@
             <!-- 確認表示部分 -->
             <div class="reservation-summary">
                 <p>Shop: <span id="shop-name">{{ $shop->name }}</span></p>
-                <p>Date: <span id="confirm-date">-</span></p>
-                <p>Time: <span id="confirm-time">-</span></p>
-                <p>Number: <span id="confirm-number">-</span></p>
+                <p>Date: <span id="confirm-date">{{ request()->is('*edit*') ? $reserve->date : '' }}</span></p>
+                <p>Time: <span id="confirm-time">{{ request()->is('*edit*') ? date('H:i', strtotime($reserve->time)) : '' }}</span></p>
+                <p>Number: <span id="confirm-number">{{ request()->is('*edit*') ? $reserve->number . '人' : '' }}</span></p>
             </div>
 
             <!-- 予約ボタン -->
-            <button type="submit" class="reserve-btn" id="reserve-button">予約する</button>
+            <button type="submit" class="reserve-btn" id="reserve-button">{{ request()->is('*edit*') ? '予約内容を変更する' : '予約する' }}</button>
         </div>
    </form>
 @endif
