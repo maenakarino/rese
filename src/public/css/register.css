@@ -53,7 +53,7 @@ main {
     display: inline-block;
     width: 25px;
     height: 25px;
-    background: url(../images/person.svg) no-repeat;
+    background: url(../images/user.png) no-repeat;
     background-size: contain;
     margin-right: 8px;
     vertical-align: bottom;
@@ -75,7 +75,7 @@ main {
     display: inline-block;
     width: 25px;
     height: 25px;
-    background: url(../images/mail.svg) no-repeat;
+    background: url(../images/mail.png) no-repeat;
     background-size: contain;
     margin-right: 8px;
     vertical-align: bottom;
@@ -86,7 +86,7 @@ main {
     display: inline-block;
     width: 25px;
     height: 25px;
-    background: url(../images/key.svg) no-repeat;
+    background: url(../images/key.png) no-repeat;
     background-size: contain;
     margin-right: 8px;
     vertical-align: bottom;
