@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-    <div class="auth__wrap">
-        <div class="auth__header">
+    <div class="login__wrap">
+        <div class="login__header">
             Login
         </div>
         <form action="/login" method="post" class="form__item">

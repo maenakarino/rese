@@ -2,7 +2,7 @@ main {
     margin-top: 100px;
 }
 
-.auth__wrap {
+.login__wrap {
     margin: auto;
     max-width: 350px;
     width: 95%;
@@ -12,12 +12,12 @@ main {
     background-color: #fff;
 }
 
-.auth__header {
+.login__header {
     background-color: rgb(63, 90, 242);
     color: #fff;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    font-size: 1.6rem;
+    font-size: 20px;
     padding: 15px;
 }
 
@@ -27,14 +27,13 @@ main {
 
 .form__input-item {
     display: inline-block;
-    width: 85%;
-    font-size: 1.6rem;
+    width: 80%;
+    font-size: 20px;
     border: none;
     outline: none;
     border-bottom: 1px solid black;
 }
 
-.form__item-user,
 .form__item-mail,
 .form__item-key {
     width: 100%;
@@ -44,30 +43,8 @@ main {
 .error__item {
     margin-bottom: 15px;
     color: red;
-    font-size: 1.4rem;
+    font-size: 15px;
     margin-left: 38px;
-}
-
-.form__item-user::before {
-    content: "";
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    background: url(../images/user.png) no-repeat;
-    background-size: contain;
-    margin-right: 8px;
-    vertical-align: bottom;
-}
-
-.form__item-shop::before {
-    content: "";
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    background: url(../images/shop.svg) no-repeat;
-    background-size: contain;
-    margin-right: 8px;
-    vertical-align: bottom;
 }
 
 .form__item-mail::before {
@@ -103,6 +80,3 @@ main {
     cursor: pointer;
 }
 
-.form__item-button:hover {
-    opacity: 0.8;
-}
