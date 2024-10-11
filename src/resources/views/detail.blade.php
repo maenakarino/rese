@@ -32,6 +32,11 @@
         <div class="reservation-form">
             <!-- 予約フォーム -->
             <input type="date" id="date" name="date" placeholder="日付を選択" value="{{ request()->is('*edit*') ? $reserve->date : '' }}">
+            <div class="form__error">
+                  @error('date')
+                  {{ $message }}
+                  @enderror
+            </div>
             <select id="time" name="time">
                 <option value="" {{ request()->is('*edit*') && isset($reserve->time) ? '' : 'selected' }}
                         disabled>-- 時間を選択してください --</option>
@@ -39,6 +44,11 @@
                 <option value="18:00">18:00</option>
                 <option value="19:00">19:00</option>
             </select>
+            <div class="form__error">
+                  @error('time')
+                  {{ $message }}
+                  @enderror
+            </div>
             <select id="number" name="number">
                 <option value="" {{ request()->is('*edit*') && isset($reserve->time) ? '' : 'selected' }}
                         disabled>--人数を選択してください --</option>
@@ -47,6 +57,11 @@
                 <option value="3">3人</option>
                 <option value="4">4人</option>
             </select>
+            <div class="form__error">
+                  @error('number')
+                  {{ $message }}
+                  @enderror
+            </div>
 
             <!-- 確認表示部分 -->
             <div class="reservation-summary">

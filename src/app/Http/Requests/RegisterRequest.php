@@ -30,4 +30,15 @@ class RegisterRequest extends FormRequest
             
         ];
     }
+
+    public function messages()
+    {
+         return [
+            'name.required' => '名前を入力してください',
+            'email.required' => 'メールアドレスを入力してください',
+            'email.email' => '有効なメールアドレス形式を入力してください',
+            'password.required' => 'パスワードを入力してください',
+            'password.min' => 'パスワードを8文字以上で入力してください',
+         ];
+    }
 }

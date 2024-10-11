@@ -78,7 +78,7 @@ header {
 }
 
 .reservation-form {
-    background-color: #673ab7;
+    background-color: #bce2e8;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -93,6 +93,13 @@ header {
     height: 25px;
     width: 100%;
     padding: 5px 10px;
+}
+
+.form__error {
+    margin-bottom: 15px;
+    color: red;
+    font-size: 1.4rem;
+    padding-left: 10px;
 }
 
 .reservation-summary {
@@ -115,4 +122,10 @@ header {
 
 .reserve-btn:hover {
     background-color: #1565c0;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
 }
