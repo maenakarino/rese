@@ -57,6 +57,13 @@ header {
     font-size: 1.4rem;
 }
 
+.review__wrap {
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+}
+
 .reservation__wrap {
     width: 45%;
     height: 650px;

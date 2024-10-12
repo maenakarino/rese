@@ -5,6 +5,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
      Route::get('/', [AuthController::class, 'index']);
      Route::get('/logout', [AuthController::class,'getLogout']);
      Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
+     Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
      
  });
 

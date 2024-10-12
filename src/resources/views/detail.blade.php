@@ -25,6 +25,33 @@
    </div>
 
    @if (Auth::check())
+   <div class="review__wrap">
+    <h1>{{ $shop->name }}</h1>
+
+    <h2>レビュー</h2>
+    @foreach ($reviews ?? [] as $review)
+      <div>
+            <p>評価: {{ $review->rating }}/5</p>
+            <p>コメント: {{ $revuew->comment }}</p>
+            <p>投稿者: {{ $review->user->name }}</p>
+      </div>
+    @endforeach
+
+    <h3>レビューを投稿する</h3>
+    <form action="{{ route('reviews.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+        <div>
+            <label for="rating">評価 (1-5):</label>
+            <input type="number" name="rating" min="1" max="5" required>
+        </div>
+        <div>
+            <label for="comment">コメント:</label>
+            <textarea name="comment" rows="5" required></textarea>
+        </div>
+        <button type="submit">投稿する</button>
+    </form>
+    </div>
    <form class="reservation__wrap" action="{{ request()->is('*edit*') ? route('reserve.update', $reserve) : route('reserve', $shop) }}" method="post">
     @csrf
     <div class="reservation__content">
