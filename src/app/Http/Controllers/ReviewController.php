@@ -29,4 +29,13 @@ class ReviewController extends Controller
 
         return redirect()->back()->with('success', 'レビューが投稿されました');
     }
+
+    public function show(Request $request)
+    {
+        $user = Auth::user();
+        $shop = shop::find($request->shop_id);
+        $reviews = Review::where('shop_id', $id)->with('user')->get();
+
+        return view('detail', compact('user', 'shop', 'reviews'));
+    }
 }
