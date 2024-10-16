@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
      Route::get('/logout', [AuthController::class,'getLogout']);
      Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
      Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
-     
+     Route::get('/review', [ReviewController::class, 'review'])->name('review');
  });
 
 Route::post('/register', [AuthController::class, 'store']);
@@ -58,3 +58,10 @@ Route::prefix('reserve')->controller(ReserveController::class)->group(function (
     Route::get('/edit/{reserve}', 'edit')->name('reserve.edit');
     Route::post('/update/{reserve}', 'update')->name('reserve.update');
 });
+
+Route::prefix('review')->controller(ReviewController::class)->group(function () {
+        Route::get('/{shop_id}', 'index')->name('review');
+        Route::post('/store/{shop_id}', 'store')->name('review.store');
+        Route::get('/review/edit/{review}', 'edit')->name('review.edit');
+        Route::delete('/destroy/{review}', 'destroy')->name('review.destroy');
+    });   

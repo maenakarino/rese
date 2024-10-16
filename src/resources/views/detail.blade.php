@@ -25,17 +25,18 @@
    @if (Auth::check())
    <div class="review-section">
     <h2 class="review-header">レビュー</h2>
+    <a href="/review" class="all-review__button">全ての口コミを見る</a>
     @foreach ($reviews ?? [] as $review)
       <div class="reviews-list">
             <p>評価: {{ $review->rating }}/5</p>
-            <p>コメント: {{ $revuew->comment }}</p>
+            <p>コメント: {{ $review->comment }}</p>
             <p>投稿者: {{ $review->user->name }}</p>
       </div>
     @endforeach
 
     <h3 class="review-header">レビューを投稿する</h3>
     <div class="review-form">
-    <form action="{{ route('reviews.store') }}" method="POST">
+    <form action="{{ request()->is('*edit*') ? route('review.update', $review) : route('review.store', $shop) }}" method="POST">
         @csrf
         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
         <div>
@@ -46,7 +47,7 @@
             <label for="comment" class="comment">コメント:</label>
             <textarea name="comment" rows="5" required></textarea>
         </div>
-        <button type="submit">投稿する</button>
+        <button type="submit">{{ request()->is('*edit*') ? '投稿内容を変更する' : '投稿する' }}</button>
     </form>
     </div>
     </div>

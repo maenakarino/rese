@@ -104,7 +104,6 @@
 
 .reservation__header__title::before {
     content: "";
-    background: url(../../images/clock.svg) no-repeat;
     vertical-align: middle;
     width: 25px;
     height: 25px;
@@ -114,7 +113,6 @@
 
 .reservation-history__header__title::before {
     content: "";
-    background: url(../../images/clock_steelblue.svg) no-repeat;
     vertical-align: middle;
     width: 25px;
     height: 25px;
