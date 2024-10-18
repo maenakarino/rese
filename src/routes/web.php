@@ -64,5 +64,5 @@ Route::prefix('review')->controller(ReviewController::class)->group(function () 
         Route::get('/review/{shop_id}', 'show')->name('review.show');
         Route::post('/store/{shop_id}', 'store')->name('review.store');
         Route::get('/review/edit/{review}', 'edit')->name('review.edit');
-        Route::delete('/destroy/{review}', 'destroy')->name('review.destroy');
+        Route::delete('/review/destroy/{id}', 'destroy')->name('review.destroy');
     });   

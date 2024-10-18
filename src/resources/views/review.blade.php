@@ -26,7 +26,7 @@
                                                 <img src="{{ asset('images/edit.svg') }}" alt="レビュー編集" class="form__button-img">
                                             </button>
                                         </form>
-                                        <form action="{{ route('review.destroy',$review) }}" method="post"  class="header__form">
+                                        <form action="{{ route('review.destroy', ['id' => $review->id]) }}" method="post"  class="header__form">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="form__button--cancel" onclick="return confirmCancel()" title="レビュー取り消し">
