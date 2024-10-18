@@ -25,7 +25,7 @@
    @if (Auth::check())
    <div class="review-section">
     <h2 class="review-header">レビュー</h2>
-    <a href="/review" class="all-review__button">全ての口コミを見る</a>
+    <a href="/review/{{ $shop->id }}" class="all-review__button">全ての口コミを見る</a>
     @foreach ($reviews ?? [] as $review)
       <div class="reviews-list">
             <p>評価: {{ $review->rating }}/5</p>

@@ -60,7 +60,8 @@ Route::prefix('reserve')->controller(ReserveController::class)->group(function (
 });
 
 Route::prefix('review')->controller(ReviewController::class)->group(function () {
-        Route::get('/{shop_id}', 'index')->name('review');
+        Route::get('/{shop_id}', 'index')->name('review.index');
+        Route::get('/review/{shop_id}', 'show')->name('review.show');
         Route::post('/store/{shop_id}', 'store')->name('review.store');
         Route::get('/review/edit/{review}', 'edit')->name('review.edit');
         Route::delete('/destroy/{review}', 'destroy')->name('review.destroy');

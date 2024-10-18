@@ -10,6 +10,20 @@ use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
+    public function index($shop_id)
+    {
+        $shop = Shop::find($shop_id); // shop_idに基づいてShopモデルを取得
+
+        if (!$shop) {
+           return redirect()->back()->withErrors('ショップが見つかりませんでした');
+        }
+
+        $reviews = Review::where('shop_id', $shop->id)->get(); // shopに対応するレビューを取得
+
+
+        return view('review', compact('reviews', 'shop')); // reviewsとshopをビューに渡す
+    }
+
     public function store(Request $request)
     {
         $userId = Auth::id();
@@ -37,7 +51,7 @@ class ReviewController extends Controller
         $shop = shop::find($request->shop_id);
         $reviews = Review::where('shop_id', $shop->id)->with('user')->get();
 
-        return view('detail', compact('user', 'shop', 'reviews'));
+        return view('detail', compact('shop', 'reviews'));
     }
 
     public function destroy(Review $review)
