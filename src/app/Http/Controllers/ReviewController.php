@@ -57,6 +57,7 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         $review = Review::find($id);
+        
 
         // 口コミの所有者であることを確認
         if ($review->user_id !== Auth::id()) {
@@ -69,21 +70,23 @@ class ReviewController extends Controller
         return redirect()->back()->with('success', '口コミが削除されました。');
     }
 
-    public function edit(Review $review)
+    public function edit($id)
     {
+        $review = Review::find($id);
+        
         // 口コミの所有者であることを確認
         if ($review->user_id !== Auth::id()) {
             return redirect()->back()->withErrors('他のユーザーの口コミは編集できません。');
         }
 
-        $user = Auth::user();
-        $shop = Shop::find($review->shop_id);
 
-        return view('review', compact('review', 'user', 'shop'));
+        return view('edit', compact('review'));
     }
 
-    public function update(Request $request, Review $review)
+    public function update(Request $request, $id)
     {
+        $review = Review::find($id);
+
         // 口コミの所有者であることを確認
         if ($review->user_id !== Auth::id()) {
             return redirect()->back()->withErrors('他のユーザーの口コミは編集できません。');
@@ -99,7 +102,7 @@ class ReviewController extends Controller
         $review->comment = $request->input('comment');
         $review->save();
 
-        return redirect()->route('review.index', ['id' => $review->shop_id])
+        return redirect()->route('review.index', ['shop_id' => $review->shop_id])
                      ->with('success', '口コミが変更されました！');
     }
 

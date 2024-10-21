@@ -63,6 +63,7 @@ Route::prefix('review')->controller(ReviewController::class)->group(function () 
         Route::get('/{shop_id}', 'index')->name('review.index');
         Route::get('/review/{shop_id}', 'show')->name('review.show');
         Route::post('/store/{shop_id}', 'store')->name('review.store');
-        Route::get('/review/edit/{review}', 'edit')->name('review.edit');
+        Route::get('/review/edit/{id}', 'edit')->name('review.edit');
+        Route::put('/review/update/{id}', 'update')->name('review.update');
         Route::delete('/review/destroy/{id}', 'destroy')->name('review.destroy');
     });   

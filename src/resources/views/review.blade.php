@@ -21,16 +21,16 @@
                                 <p class="header__title review__header__title">口コミ{{ $loop->iteration }}</p>
                                 @if(Auth::check() && Auth::id() === $review->user_id)
                                     <div class="review__header-button">
-                                        <form action="{{ route('review.edit',$review) }}" method="get" class="header__form">
+                                        <form action="{{ route('review.edit', ['id' => $review->id]) }}" method="get" class="header__form">
                                             <button type="submit" class="form__button--edit" onclick="return confirmEdit()" title="レビュー編集">
-                                                <img src="{{ asset('images/edit.svg') }}" alt="レビュー編集" class="form__button-img">
+                                                <img src="{{ asset('images/pen.png') }}" alt="レビュー編集" class="form__button-img">
                                             </button>
                                         </form>
                                         <form action="{{ route('review.destroy', ['id' => $review->id]) }}" method="post"  class="header__form">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="form__button--cancel" onclick="return confirmCancel()" title="レビュー取り消し">
-                                                <img src="{{ asset('images/batsu.svg') }}" alt="レビュー取り消し" class="form__button-img">
+                                                <img src="{{ asset('images/×mark.png') }}" alt="レビュー取り消し" class="form__button-img">
                                             </button>
                                         </form>
                                     </div>

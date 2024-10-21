@@ -36,7 +36,7 @@
 
     <h3 class="review-header">レビューを投稿する</h3>
     <div class="review-form">
-    <form action="{{ request()->is('*edit*') ? route('review.update', $review) : route('review.store', $shop) }}" method="POST">
+    <form action="{{ request()->is('*edit*') ? route('review.update', ['id' => $review->id]) : route('review.store', $shop) }}" method="POST">
         @csrf
         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
         <div>

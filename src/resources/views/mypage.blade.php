@@ -21,14 +21,14 @@
                             <div class="reservation__header-button">
                                 <form action="{{ route('reserve.edit',$reserve) }}" method="get" class="header__form">
                                     <button type="submit" class="form__button--edit" onclick="return confirmEdit()" title="予約変更">
-                                        <img src="{{ asset('images/edit.svg') }}" alt="予約変更" class="form__button-img">
+                                        <img src="{{ asset('images/pen.png') }}" alt="予約変更" class="form__button-img">
                                     </button>
                                 </form>
                                 <form action="{{ route('reserve.destroy',$reserve) }}" method="post"  class="header__form">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="form__button--cancel" onclick="return confirmCancel()" title="予約キャンセル">
-                                        <img src="{{ asset('images/batsu.svg') }}" alt="予約キャンセル" class="form__button-img">
+                                        <img src="{{ asset('images/×mark.png') }}" alt="予約キャンセル" class="form__button-img">
                                     </button>
                                 </form>
                             </div>
