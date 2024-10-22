@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/review.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 @endsection
 
 @section('content')
@@ -17,23 +17,25 @@
                     <p>No review available for editing.</p>
                 @else
                     <div class="review__content">
+                      <div class="review-form">
                         <!-- 編集フォームの内容 -->
                         <form action="{{ route('review.update', ['id' => $review->id]) }}" method="POST">
                             @csrf
                             @method('PUT')
 
-                            <div class="form-group">
+                            <div>
                                 <label for="rating">評価</label>
-                                <input type="number" name="rating" id="rating" value="{{ old('rating', $review->rating) }}" min="1" max="5" required>
+                                <input class="rating" type="number" name="rating" id="rating" value="{{ old('rating', $review->rating) }}" min="1" max="5" required>
                             </div>
 
-                            <div class="form-group">
-                                <label for="comment">コメント</label>
-                                <textarea name="comment" id="comment" rows="5" required>{{ old('comment', $review->comment) }}</textarea>
+                            <div>
+                                <label class="comment" class="comment" for="comment">コメント</label>
+                                <textarea class="textarea" name="comment" id="comment" rows="5" required>{{ old('comment', $review->comment) }}</textarea>
                             </div>
 
                             <button type="submit">レビューを更新</button>
                         </form>
+                      </div>
                     </div>
                 @endif
             </div>
