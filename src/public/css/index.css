@@ -220,3 +220,63 @@
 .form__button:hover {
     opacity: 0.8;
 }
+
+
+/* スマートフォン向け（横幅768px以下） */
+@media (max-width: 768px) {
+    .header__right {
+        flex-direction: column;
+        width: 60%;
+    }
+
+    .header__search,
+    .header__sort {
+        width: 70%;
+        flex-direction: column;
+        margin: 0 0 0 auto;
+    }
+
+    .select-box__label,
+    .search__item {
+        width: 70%;
+    }
+
+    .shop__wrap {
+        flex-direction: column;
+        padding: 0;
+        gap: 15px;
+    }
+
+    .shop__content {
+        width: 100%;
+        /* 1列表示 */
+        margin-bottom: 20px;
+    }
+
+    .shop__image {
+        height: 180px;
+        /* モバイルでより大きく */
+    }
+
+    .shop__title {
+        font-size: 1.2rem;
+    }
+
+    .shop__tag {
+        font-size: 0.9rem;
+    }
+
+    .shop__button-detail {
+        font-size: 1rem;
+        height: 35px;
+    }
+
+    .shop__button-favorite-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .search-form__search-btn {
+        width: 100%;
+    }
+}

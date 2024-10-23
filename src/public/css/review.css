@@ -166,3 +166,35 @@
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
+@media (max-width: 768px) {
+    .review__wrap {
+        padding-left: 5px;
+    }
+
+    .review__title {
+        font-size: 24px;
+        padding-bottom: 15px;
+        top: 60px;
+        /* スクロール時の固定位置をさらに調整 */
+    }
+
+    .review__content {
+        padding: 10px 2% 20px 2%;
+        font-size: 16px;
+    }
+
+    .review-form {
+        font-size: 14px;
+    }
+
+    .rating,
+    .comment {
+        font-size: 10px;
+    }
+
+    .form__button-img {
+        width: 20px;
+        height: 20px;
+    }
+}
