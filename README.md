@@ -21,4 +21,4 @@
 
 ## 環境構築
 ### Dockerビルド
-１、> git clone
+１、 > git clone
