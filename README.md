@@ -21,7 +21,7 @@
 
 ## 環境構築
 **Dockerビルド**
-1. `git clone git@github.com:estra-inc/confirmation-test-contact-form.git`
+1. `git clone git@github.com:maenakarino/rese.git`
 2. DockerDesktopアプリを立ち上げる
 3. `docker-compose up -d --build`
 
@@ -52,3 +52,7 @@ php artisan migrate
 ``` bash
 php artisan db:seed
 ```
+## アカウントの種類
+・テストユーザー　　　email: test@gmail.com
+                    password: 12345678
+
