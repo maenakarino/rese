@@ -53,6 +53,5 @@ php artisan migrate
 php artisan db:seed
 ```
 ## アカウントの種類
-・テストユーザー　　　email: test@gmail.com
-                    password: 12345678
+・テストユーザー　　　email: test@gmail.com   password: 12345678
 
