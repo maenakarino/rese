@@ -16,6 +16,7 @@
 　　docker、Laravel 8.x、PHP 7.4、fortify、javascript
 
 ## テーブル設計
+![usersテーブル](https://github.com/user-attachments/assets/d1e897c0-7395-4cf8-a198-a18154007e9c)
 
 ## ER図
 ![ER図](https://github.com/user-attachments/assets/ed6b267f-d593-455e-a85e-f4f29d236971)
