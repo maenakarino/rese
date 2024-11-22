@@ -18,6 +18,7 @@
 ## テーブル設計
 
 ## ER図
+![ER図](https://github.com/user-attachments/assets/0dd83c11-f7fa-4490-ba58-5dc5ec3f1011)
 
 ## 環境構築
 **Dockerビルド**
