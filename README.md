@@ -17,6 +17,12 @@
 
 ## テーブル設計
 ![usersテーブル](https://github.com/user-attachments/assets/d1e897c0-7395-4cf8-a198-a18154007e9c)
+![shopsテーブル](https://github.com/user-attachments/assets/27453a49-00df-45ec-bfb6-ff0226df19c6)
+![areasテーブル](https://github.com/user-attachments/assets/e9f30260-1413-400d-b8b9-bcf77b3d98d8)
+![genresテーブル](https://github.com/user-attachments/assets/50b2e50d-7fa0-4bfd-ab82-57d56d328b89)
+![reservesテーブル](https://github.com/user-attachments/assets/b76a9d26-00e5-499d-8ae0-0ecab805632b)
+![favoritesテーブル](https://github.com/user-attachments/assets/18bff1db-f3c5-4c8c-af73-5cb59b7b80a4)
+![reviewsテーブル](https://github.com/user-attachments/assets/0b56fb2d-38fc-4708-8cb6-21a19e9f6c53)
 
 ## ER図
 ![ER図](https://github.com/user-attachments/assets/ed6b267f-d593-455e-a85e-f4f29d236971)
