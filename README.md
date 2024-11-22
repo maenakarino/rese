@@ -7,8 +7,8 @@
 ## 作成した目的
 
 ## アプリケーションURL
-  *開発環境: http://localhost/
-  *phpMyAdmin: http://localhost:8080/
+  * 開発環境: http://localhost/
+  * phpMyAdmin: http://localhost:8080/
 
 ## 機能一覧
 会員登録、ログイン、ログアウト、検索(エリア、店名、ジャンル)、お気に入り店舗追加/削除、飲食店一覧/詳細表示、予約追加/変更/削除、レビュー閲覧、レビュー書き込み/変更・削除
@@ -61,6 +61,11 @@ php artisan migrate
 ``` bash
 php artisan db:seed
 ```
+* アクセスした際にPermission deniedというエラーが発生した場合、下記のコマンドを実行し、再度アプリケーションを立ち上げる。
+```
+$ sudo chmod -R 777 src/*
+```
+
 ## アカウントの種類
 ・テストユーザー　　　email: test@gmail.com 、  password: 12345678
 
