@@ -19,7 +19,7 @@
 ## テーブル設計
 ![usersテーブル](https://github.com/user-attachments/assets/d1e897c0-7395-4cf8-a198-a18154007e9c)
 ![shopsテーブル](https://github.com/user-attachments/assets/a27f906d-5494-4bc5-8e18-eeb804c0a28a)
-![areasテーブル](https://github.com/user-attachments/assets/e9f30260-1413-400d-b8b9-bcf77b3d98d8)
+![areasテーブル](https://github.com/user-attachments/assets/ec0728a6-70b7-4be0-a2ac-278686cf6efb)
 ![genresテーブル](https://github.com/user-attachments/assets/50b2e50d-7fa0-4bfd-ab82-57d56d328b89)
 ![reservesテーブル](https://github.com/user-attachments/assets/b76a9d26-00e5-499d-8ae0-0ecab805632b)
 ![favoritesテーブル](https://github.com/user-attachments/assets/18bff1db-f3c5-4c8c-af73-5cb59b7b80a4)
