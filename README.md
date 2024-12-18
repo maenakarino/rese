@@ -23,7 +23,7 @@
 ![genresテーブル](https://github.com/user-attachments/assets/1246f4f9-a094-43a5-b06c-66aa203172da)
 ![reservesテーブル](https://github.com/user-attachments/assets/130ccaa8-2506-4f1a-8bec-9a44dcbd46b7)
 ![favoritesテーブル](https://github.com/user-attachments/assets/18bff1db-f3c5-4c8c-af73-5cb59b7b80a4)
-![reviewsテーブル](https://github.com/user-attachments/assets/0b56fb2d-38fc-4708-8cb6-21a19e9f6c53)
+![reviewsテーブル](https://github.com/user-attachments/assets/a5d841ab-4f4c-4594-85f3-52db3bfb7543)
 
 ## ER図
 ![ER図](https://github.com/user-attachments/assets/ed6b267f-d593-455e-a85e-f4f29d236971)
